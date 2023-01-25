@@ -1,19 +1,24 @@
 require 'calculator'
 
 describe Calculator do
-  context 'when to call sum method' do
-    calc = Calculator.new
-
-    it 'successfully sum 2 numbers' do
-      sum_method = calc.sum(3,5)
+  context '#sum' do
+    it 'with 2 positive numbers' do
+      sum_method = subject.sum(3,5)
       result_valid = 3 + 5
 
       expect(sum_method).to eq(result_valid)
     end
 
-    it 'successfully sum 2 negative numbers' do
-      sum_method = calc.sum(-3,-5)
+    it 'with 2 negative numbers' do
+      sum_method = subject.sum(-3,-5)
       result_valid = (-3) + (-5)
+
+      expect(sum_method).to eq(result_valid)
+    end
+
+    it 'with negative and positive numbers' do
+      sum_method = subject.sum(3,-5)
+      result_valid = (3) + (-5)
 
       expect(sum_method).to eq(result_valid)
     end
